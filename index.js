@@ -7,21 +7,32 @@ client.on("ready", () => {
 let prefix = config.prefix;
 
 client.on("message", msg => {
-      const args = msg.content.slice(prefix.length).split(" ");
-      const command = args.shift().toLowerCase();
-  if (msg.author.bot) return;
+const args = msg.content.slice(prefix.length).split(" ");
+const command = args.shift().toLowerCase();
+if (msg.author.bot) return;
 if (msg.content.startsWith(prefix)) {
-var inputToProcess = input-2;
-var i;
-var newNumber=1;
-var oldNumber=1;
-var oldDuplicate;
-for (i = 0; i < inputToProcess; i++) {
-  oldDuplicate = oldNumber;
-  oldNumber = newNumber;
-  newNumber = newNumber+oldDuplicate;
-}
-console.log(newNumber)
-}
+  if(command === "fibonacci"){
+  let input = args[0]
+  if(input == 0){
+  msg.channel.send("0")
+  }
+    else if(input < 0){
+    msg.channel.send("Input cannot be smaller than 0")
+    }
+    else{
+  let inputToProcess = input-2;
+  let i;
+  let newNumber=1;
+  let oldNumber=1;
+  let oldDuplicate;
+  for (i = 0; i < inputToProcess; i++) {
+    oldDuplicate = oldNumber;
+    oldNumber = newNumber;
+    newNumber = newNumber+oldDuplicate;
+  }
+  msg.channel.send(newNumber)
+ }
+ }
+ }
 });
 
