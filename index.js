@@ -36,3 +36,4 @@ if (msg.content.startsWith(prefix)) {
  }
 });
 
+client.login(config.token)
